@@ -1,0 +1,35 @@
+import sqlite3
+'''db=sqlite3.connect('employee.db')
+cursor=db.cursor()
+#cursor.execute('create or replace table dept(dno INTEGER,dname TEXT)')
+cursor.execute('insert into dept values(3,"tenzu")')
+cursor.execute('select * from dept')
+row=cursor.fetchall()
+for i in row:
+    print(i)
+    row=cursor.fetchall()
+cursor.close()
+db.close()
+#db.commit()
+'''
+db=sqlite3.connect('emp.db')
+cursor=db.cursor()
+cursor.execute('create table if not exists employee(eno integer,ename text,salary float)')
+cursor.execute('insert into employee values(4,"prit",1000)')
+cursor.execute('insert into employee values(5,"parth",500)')
+cursor.execute('insert into employee values(6,"prachi",2000)')
+#db.commit()
+n=int(input("enter empno"))
+
+
+#cursor.execute("update employee set salary=salary+100")
+#cursor.execute("select * from employee")
+cursor.execute("select * from employee where eno={0}".format(n))
+#cursor.execute("select * from employee")
+row=cursor.fetchone()
+while row is not None:
+    print(row)
+    row=cursor.fetchone()
+db.commit()
+#cursor.close()
+#db.close()

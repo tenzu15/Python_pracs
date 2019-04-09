@@ -1,0 +1,11 @@
+from tkinter import *
+root = Tk()
+c = Canvas(root, height=1000, width=1000)
+c.create_rectangle(400, 400, 600, 600, fill="yellow")
+c.create_line(400, 400, 500, 300, 600, 400, fill="red")
+c.create_arc(600,500,700,700,start=0,width=2,fill="green",style="chord")
+#c = Label(root, text="python bro")
+fnt=('Helvetica',-50,'bold italic')
+c.create_text(200,350,text="my sweet home",font=fnt)
+c.pack()
+root.mainloop()
